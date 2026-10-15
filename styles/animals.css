@@ -147,3 +147,75 @@ main section:nth-of-type(2n - 1){
 	/* justify self only works because of display:grid on the main element */
 	justify-self:end;
 }
+
+/*~~~~~~~~~ tape effect and pseudo elements ~~~~~~~~~~*/
+
+article{
+	background:white;
+	border: 1px solid #aaa;
+	box-shadow: 2px 2px 4px rgb(50,50,50);
+}
+
+header article{
+	/* one value for padding or margin means all sides
+	2 values means top and bottom, left and right */
+	padding:10px;
+	margin:20px 0;
+}
+
+section article{
+	padding:23px;
+	position:relative;
+	/* make this position:relative, so it will hold the position:absolute
+	pseudo elements we are going to put inside it */
+}
+
+section article img{
+	/* a space means go inside the element - this targets only images
+	inside of article inside of sections */
+	max-width:100%;
+}
+
+section article::before{
+	/* ::before is a pseudo element - every HTML element has a ::before
+	and a ::after */
+	content: " ";
+	/* before and after don't exist until you put content in them, but you
+	can add just an empty space if you don't want text */
+
+	width: 160px;
+	height: 45px;
+	/* with rgb and hsl, you can add an alpha channel, or transparency 
+	the alpha channel is a value between 0 and 1, where 1 is fully
+	opaque and 0 is fully transparent */
+	background-color:rgba(222,222,222,0.6);
+
+	/* pseudo elements have to be positioned using absolute */
+	position:absolute;
+	/* calc lets you add or subtract different unit types 
+	you must put space around the + or the - */
+	left: calc(50% - 80px);
+	top: -23px; /* negative value to push it up, rather than down */
+
+	transform: rotate(-15deg);
+
+}
+
+/*** other pseudo classes include: first-line, first-letter, and select */
+
+h1 span{
+	/* ::first-letter only works on block elements, so if you use spans,
+	you have to make them block */
+	display:block;
+}
+
+h1 span::first-letter{
+	font-family:"Moo Lah Lah", cursive;
+	font-size:1.3em;
+}
+
+p::selection{
+	/* changes the colour when you highlight some text */
+	color:#e7a82a;
+	background-color:brown;
+}
