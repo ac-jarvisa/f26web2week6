@@ -83,3 +83,67 @@ footer{
 	Special (added in class)
 ********************************/
 
+main{
+	/* to centre an element in the browser... */
+	width:960px;
+	margin:0 auto;
+
+	/* the ../ means go up one folder...
+	do not use / at the start of your file names */
+	background-image:url("../images/corkback.jpg");
+
+	/* three values on padding or margin means:
+		top, left and right, bottom */
+	padding: 25px 45px 45px;
+
+	/* box-sizing: border-box makes the browser include the padding and border
+	within the total width set for the element - meaning adding padding
+	and border will not add extra width */
+	box-sizing: border-box;
+
+	border: 25px solid #542401;
+
+	border-radius: 25px;
+	/* corner-shape allows you to control the style of rounded border:
+		round, squircle, square, bevel, scoop, notch...
+		see: https://css-tricks.com/almanac/properties/c/corner-shape/ */
+
+	/* for box shadow, the values are:
+		type
+		horizontal offset
+		vertical offset
+		size
+		blur (which we aren't using)
+		colour
+	*/
+
+	box-shadow: 5px 5px 10px black, inset 3px 3px 7px black;
+
+	/* so we can align the elements later... */
+	display:grid;
+	grid-template-columns: 1fr;
+}
+
+
+/**** ~~~~~~~~~~~~ pictures/content ~~~~~~~~~~~~~~~~~ ****/
+
+p{
+	/* it is always a good idea to put a line height on your text!
+	(this adds space between lines) */
+	line-height: 1.4;
+}
+
+section{
+	width:350px;
+}
+
+/* use nth-child (or nth-of-type) to select alternating elements.... 
+	nth-child(2n) means every second, starting with the second
+	nth-child(3n) means every third, starting with the third
+	nth-child(2n - 1) meaning every second, starting with the first
+	nth-child(5n + 2) meaning every 5th starting with the 7th
+*/
+main section:nth-of-type(2n - 1){
+	/* justify self only works because of display:grid on the main element */
+	justify-self:end;
+}
